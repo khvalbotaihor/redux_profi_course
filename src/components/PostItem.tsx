@@ -8,12 +8,19 @@ interface PostItemProps {
 }
 
 const PostItem: FC<PostItemProps> = ({post,remove,update}) => {
-    const
+    const handleRemove = (e: React.MouseEvent) => {
+        e.stopPropagation()
+        remove(post)
+    }
+    const handleUpdate = (e: React.MouseEvent) => {
+        const title = prompt() || ' '
+        update({...post, title})
+    }
 
     return (
-        <div className="post">
+        <div className="post" onClick={handleUpdate}>
             {post.id}. {post.title}
-            <button onClick={() => remove()}>Delete post</button>
+            <button onClick={handleRemove}>Delete post</button>
         </div>
     );
 };

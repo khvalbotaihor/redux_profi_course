@@ -9,9 +9,9 @@ const PostContainer2 = () => {
         <div className='post__list'>
             {isLoading && <h1>Loading.....</h1>}
             {error && <h1>An error occurs on loading posts</h1>}
-            {posts?.map(post =>
+{/*            {posts?.map(post =>
                 <PostItem post={post} key={post.id}/>
-            )}
+            )}*/}
         </div>
     );
 };
