@@ -4,12 +4,14 @@ import PostItem from "./PostItem";
 
 const PostContainer = () => {
     const [limit, setLimit] = useState(10)
-    const {data: posts, error, isLoading} = postAPI.useFetchAllPostsQuery(limit)
+    const {data: posts, error, isLoading, refetch} = postAPI.useFetchAllPostsQuery(limit, {
+        pollingInterval: 1000
+    })
 
     useEffect(() => {
-        setTimeout(() => {
+/*        setTimeout(() => {
             setLimit(3)
-        }, 2000)
+        }, 2000)*/
     }, [])
 
     return (
